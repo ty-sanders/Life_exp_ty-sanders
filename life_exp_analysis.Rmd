@@ -29,12 +29,15 @@ group_by() summarize()
 ?group_by
 ?summarise
 ?semi_join
-by_life_exp <- gm_unf %>% group_by(year) %>% filter(lifeExp == max(lifeExp)) %>% select(country, lifeExp, year)
+by_life_exp <- gm_unf %>% group_by(year) %>% filter(lifeExp == max(lifeExp)) %>% select(country, lifeExp, year) %>% arrange(year)
 
 head(by_life_exp)
 
 
 by_life_exp
+
+
+plot(by_life_exp)
 
 ```
 
