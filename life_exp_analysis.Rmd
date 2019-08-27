@@ -14,15 +14,27 @@ knitr::opts_chunk$set(echo = TRUE)
 Here, we examine the cool life expectancy plot. In-class Lab day 1. 
 
 
-#Analysis 
+#Life Expectancy Analysis 
 ```{r}
 
+install.packages("gapminder")
+library(gapminder)
+library(dplyr)
+gm_unf <- gapminder_unfiltered
+
+head(gm_unf)
+
+group_by() summarize()
+
+?group_by
+?summarise
+?semi_join
+by_life_exp <- gm_unf %>% group_by(year) %>% filter(lifeExp == max(lifeExp)) %>% select(country, lifeExp, year)
+
+head(by_life_exp)
 
 
-
-
-
-
+by_life_exp
 
 ```
 
