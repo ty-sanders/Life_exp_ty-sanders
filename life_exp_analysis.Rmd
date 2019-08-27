@@ -1,0 +1,28 @@
+---
+title: "Examine Life Expectancy"
+author: "Tyler Sanders"
+date: "August 27, 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Abstract 
+
+Here, we examine the cool life expectancy plot. In-class Lab day 1. 
+
+
+#Analysis 
+```{r}
+
+
+
+
+
+
+
+
+```
+
