@@ -41,3 +41,12 @@ plot(by_life_exp)
 
 ```
 
+We will now recreate the plot from Oeppen and Vaupel (2002). 
+
+```{r}
+
+
+
+
+```
+
