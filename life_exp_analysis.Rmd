@@ -7,46 +7,43 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+
+library(gapminder)
+library(tidyverse)
 ```
 
 # Abstract 
-
 Here, we examine the cool life expectancy plot. In-class Lab day 1. 
 
 
-#Life Expectancy Analysis 
+# Life Expectancy Analysis 
+We summarize the life expectancy by finding the max across all countries each year. 
 ```{r}
-
-install.packages("gapminder")
-library(gapminder)
-library(dplyr)
 gm_unf <- gapminder_unfiltered
 
 head(gm_unf)
 
-group_by() summarize()
-
-?group_by
-?summarise
-?semi_join
-by_life_exp <- gm_unf %>% group_by(year) %>% filter(lifeExp == max(lifeExp)) %>% select(country, lifeExp, year) %>% arrange(year)
+gm_unf %>%
+  group_by(year) %>%
+  filter(lifeExp == max(lifeExp))%>%
+  arrange(lifeExp) ->
+  by_life_exp
 
 head(by_life_exp)
 
-
 by_life_exp
-
-
-plot(by_life_exp)
-
 ```
 
+
+# Life Expectancy Plot
 We will now recreate the plot from Oeppen and Vaupel (2002). 
-
 ```{r}
-
-
-
-
+by_life_exp %>%
+  ggplot(aes(x = year, y = lifeExp)) +
+  geom_point(aes(color = country), size = 3) +
+  geom_smooth(method = "lm", se = FALSE) +
+  geom_point(pch = 1, size = 3)
 ```
+
+
 
